@@ -8,8 +8,8 @@
           totalStyles
           featureStyle {
             name
+            cssFamily
             family {
-              name
               cssUrl
             }
           }

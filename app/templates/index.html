@@ -8,7 +8,7 @@
       {% set style = collection.featureStyle %}
       {% set family = style.family %}
 
-      {% call render_font_style(css_url=family.cssUrl, family=family.name, style=style.name) %}
+      {% call render_font_style(css_url=family.cssUrl, family=style.cssFamily, style=style.name) %}
         <a href="/fonts/{{ collection.id }}" class="index__link">
           {{ collection.name }}
           <span class="index__link__styles">{{ collection.totalStyles }} styles</span>

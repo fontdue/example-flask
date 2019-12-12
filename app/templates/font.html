@@ -6,7 +6,7 @@
   <div class="collection">
     <h1 class="collection__name">
       {% set feature_style = collection.featureStyle %}
-      {% call render_font_style(css_url=feature_style.family.cssUrl, family=feature_style.family.name, style=feature_style.name) %}
+      {% call render_font_style(css_url=feature_style.family.cssUrl, family=feature_style.cssFamily, style=feature_style.name) %}
         {{ collection.name }}
       {% endcall %}
     </h1>
@@ -19,7 +19,7 @@
             <h3>{{ family.name }}</h3>
 
             {% for style in family.fontStyles %}
-              {% call render_font_style(css_url=family.cssUrl, family=family.name, style=style.name) %}
+              {% call render_font_style(css_url=family.cssUrl, family=style.cssFamily, style=style.name) %}
                 {{ style.name }}
               {% endcall %}
             {% endfor %}
@@ -30,7 +30,7 @@
       <div class="styles">
         {{ render_css_url(collection.cssUrl) }}
         {% for style in collection.fontStyles %}
-          {% call render_font_style(family=collection.name, style=style.name) %}
+          {% call render_font_style(family=style.cssFamily, style=style.name) %}
             {{ style.name }}
           {% endcall %}
         {% endfor %}
@@ -41,12 +41,11 @@
       {% for edge in collection.typeTesters.edges %}
         {% set tester = edge.node %}
         {% set style = tester.fontStyle %}
-        {% set family = style.family %}
 
         <div class="tester">
-          <h4>{{ family.name }} {{ style.name }}</h4>
+          <h4>{{ style.familyName }} {{ style.name }}</h4>
 
-          {% call render_font_style(family=family.name, style=style.name) %}
+          {% call render_font_style(family=style.cssFamily, style=style.name) %}
             <p style="font-size: {{ tester.size }}px; line-height: {{ tester.lineHeight }}">
               {{ tester.content }}
             </p>

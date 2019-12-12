@@ -1,3 +1,11 @@
+fragment FontStyleCSS on FontStyle {
+  name
+  cssFamily
+  family {
+    cssUrl
+  }
+}
+
 query Font($id: ID!) {
   node(id: $id) {
     ...on FontCollection {
@@ -7,14 +15,11 @@ query Font($id: ID!) {
       cssUrl
       fontStyles {
         name
+        cssFamily
       }
 
       featureStyle {
-        name
-        family {
-          name
-          cssUrl
-        }
+        ...FontStyleCSS
       }
 
       children(collectionTypes: [FAMILY]) {
@@ -23,6 +28,7 @@ query Font($id: ID!) {
 
         fontStyles {
           name
+          cssFamily
         }
       }
 
@@ -35,9 +41,7 @@ query Font($id: ID!) {
 
             fontStyle {
               name
-              family {
-                name
-              }
+              cssFamily
             }
           }
         }

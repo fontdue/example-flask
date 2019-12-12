@@ -1,0 +1,12 @@
+Click==7.0
+Cython==0.29.14
+Flask==1.1.1
+gql==0.1.0
+graphql-core==2.2.1
+itsdangerous==1.1.0
+Jinja2==2.10.3
+MarkupSafe==1.1.1
+promise==2.2.1
+python-dotenv==0.10.3
+six==1.13.0
+Werkzeug==0.16.0

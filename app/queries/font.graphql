@@ -1,0 +1,39 @@
+query Font($id: ID!) {
+  node(id: $id) {
+    ...on FontCollection {
+      name
+      description
+      collectionType
+
+      fontStyles {
+        name
+      }
+
+      children(collectionTypes: [FAMILY]) {
+        name
+        cssUrl
+
+        fontStyles {
+          name
+        }
+      }
+
+      typeTesters(first: 120) {
+        edges {
+          node {
+            content
+            size
+            lineHeight
+
+            fontStyle {
+              name
+              family {
+                name
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{% from 'helpers.html' import render_font_style %}
+{% extends "layout.html" %}
+
+{% block content %}
+  <div>
+    {% for edge in data.viewer.fontCollections.edges %}
+      {% set collection = edge.node %}
+      {% set style = collection.featureStyle %}
+      {% set family = style.family %}
+
+      {% call render_font_style(css_url=family.cssUrl, family=family.name, style=style.name) %}
+        <a href="/fonts/{{ collection.id }}">
+          {{ collection.name }}
+          <span>{{ collection.totalStyles }} styles</span>
+        </a>
+      {% endcall %}
+
+    {% endfor %}
+  </div>
+{% endblock %}

@@ -1,0 +1,20 @@
+{
+  viewer {
+    fontCollections(onlyRoots: true, first: 4) {
+      edges {
+        node {
+          id
+          name
+          totalStyles
+          featureStyle {
+            name
+            family {
+              name
+              cssUrl
+            }
+          }
+        }
+      }
+    }
+  }
+}

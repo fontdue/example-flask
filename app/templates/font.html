@@ -1,0 +1,39 @@
+{% from 'helpers.html' import render_font_style %}
+{% extends "layout.html" %}
+
+{% block content %}
+  {% set collection = data.node %}
+  <div>
+    <h1>{{ collection.name }}</h1>
+    <p>{{ collection.description }}</p>
+
+    {% if collection.collectionType == 'superfamily' %}
+      {% for family in collection.children %}
+        <div>
+          <h3>{{ family.name }}</h3>
+
+          {% for style in family.fontStyles %}
+            {% call render_font_style(css_url=family.cssUrl, family=family.name, style=style.name) %}
+              {{ style.name }}
+            {% endcall %}
+          {% endfor %}
+        </div>
+      {% endfor %}
+    {% else %}
+
+    {% endif %}
+
+    <div>
+      {% for edge in collection.typeTesters.edges %}
+        {% set tester = edge.node %}
+        {% set style = tester.fontStyle %}
+        {% set family = style.family %}
+        {% call render_font_style(family=family.name, style=style.name) %}
+          <p style="font-size: {{ tester.size }}px; line-height: {{ tester.lineHeight }}">
+            {{ tester.content }}
+          </p>
+        {% endcall %}
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}

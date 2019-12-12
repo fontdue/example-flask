@@ -1,6 +1,10 @@
+{% macro render_css_url(css_url) -%}
+<link href="{{ css_url }}" rel="stylesheet">
+{%- endmacro %}
+
 {% macro render_font_style(css_url=None, family='', style='') -%}
 {% if css_url %}
-<link href="{{ css_url }}" rel="stylesheet">
+{{ render_css_url(css_url) }}
 {% endif %}
 
 <div style="font-family: '{{ family }} {{ style }}'">

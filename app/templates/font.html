@@ -1,26 +1,40 @@
-{% from 'helpers.html' import render_font_style %}
+{% from 'helpers.html' import render_font_style, render_css_url %}
 {% extends "layout.html" %}
 
 {% block content %}
   {% set collection = data.node %}
-  <div>
-    <h1>{{ collection.name }}</h1>
-    <p>{{ collection.description }}</p>
+  <div class="collection">
+    <h1 class="collection__name">
+      {% set feature_style = collection.featureStyle %}
+      {% call render_font_style(css_url=feature_style.family.cssUrl, family=feature_style.family.name, style=feature_style.name) %}
+        {{ collection.name }}
+      {% endcall %}
+    </h1>
+    <p class="collection__description">{{ collection.description }}</p>
 
     {% if collection.collectionType == 'superfamily' %}
-      {% for family in collection.children %}
-        <div>
-          <h3>{{ family.name }}</h3>
+      <div class="styles-group">
+        {% for family in collection.children %}
+          <div class="styles">
+            <h3>{{ family.name }}</h3>
 
-          {% for style in family.fontStyles %}
-            {% call render_font_style(css_url=family.cssUrl, family=family.name, style=style.name) %}
-              {{ style.name }}
-            {% endcall %}
-          {% endfor %}
-        </div>
-      {% endfor %}
-    {% else %}
-
+            {% for style in family.fontStyles %}
+              {% call render_font_style(css_url=family.cssUrl, family=family.name, style=style.name) %}
+                {{ style.name }}
+              {% endcall %}
+            {% endfor %}
+          </div>
+        {% endfor %}
+      </div>
+    {% elif collection.collectionType == 'family' %}
+      <div class="styles">
+        {{ render_css_url(collection.cssUrl) }}
+        {% for style in collection.fontStyles %}
+          {% call render_font_style(family=collection.name, style=style.name) %}
+            {{ style.name }}
+          {% endcall %}
+        {% endfor %}
+      </div>
     {% endif %}
 
     <div>
@@ -28,11 +42,16 @@
         {% set tester = edge.node %}
         {% set style = tester.fontStyle %}
         {% set family = style.family %}
-        {% call render_font_style(family=family.name, style=style.name) %}
-          <p style="font-size: {{ tester.size }}px; line-height: {{ tester.lineHeight }}">
-            {{ tester.content }}
-          </p>
-        {% endcall %}
+
+        <div class="tester">
+          <h4>{{ family.name }} {{ style.name }}</h4>
+
+          {% call render_font_style(family=family.name, style=style.name) %}
+            <p style="font-size: {{ tester.size }}px; line-height: {{ tester.lineHeight }}">
+              {{ tester.content }}
+            </p>
+          {% endcall %}
+        </div>
       {% endfor %}
     </div>
   </div>

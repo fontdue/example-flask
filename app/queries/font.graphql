@@ -4,9 +4,17 @@ query Font($id: ID!) {
       name
       description
       collectionType
-
+      cssUrl
       fontStyles {
         name
+      }
+
+      featureStyle {
+        name
+        family {
+          name
+          cssUrl
+        }
       }
 
       children(collectionTypes: [FAMILY]) {

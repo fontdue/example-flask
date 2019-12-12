@@ -2,16 +2,16 @@
 {% extends "layout.html" %}
 
 {% block content %}
-  <div>
+  <div class="index">
     {% for edge in data.viewer.fontCollections.edges %}
       {% set collection = edge.node %}
       {% set style = collection.featureStyle %}
       {% set family = style.family %}
 
       {% call render_font_style(css_url=family.cssUrl, family=family.name, style=style.name) %}
-        <a href="/fonts/{{ collection.id }}">
+        <a href="/fonts/{{ collection.id }}" class="index__link">
           {{ collection.name }}
-          <span>{{ collection.totalStyles }} styles</span>
+          <span class="index__link__styles">{{ collection.totalStyles }} styles</span>
         </a>
       {% endcall %}
 

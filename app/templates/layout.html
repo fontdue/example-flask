@@ -2,17 +2,19 @@
 <html lang="en">
   <head>
     {% block head %}
-    <link rel="stylesheet" href="style.css" />
-    <title>{% block title %}{% endblock %}</title>
+      <link rel="stylesheet" href="/static/app.css" />
+      <title>{% block title %}{% endblock %}</title>
     {% endblock %}
   </head>
   <body>
-    <nav id="nav">
-      <a href="/">Home</a>
-    </nav>
+    <main class="main">
+      <nav class="nav">
+        <a href="/">Typefaces</a>
+      </nav>
 
-    <div id="content">
-      {% block content %}{% endblock %}
-    </div>
+      <div class="content">
+        {% block content %}{% endblock %}
+      </div>
+    </main>
   </body>
 </html>

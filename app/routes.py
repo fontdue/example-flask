@@ -1,7 +1,7 @@
 from functools import reduce
 from flask import render_template
-from api import app
-from api.graphql import query
+from app import app
+from app.graphql import query
 
 def deep_get(dictionary, keys, default=None):
     return reduce(lambda d, key: d.get(key, default) if isinstance(d, dict) else default, keys.split("."), dictionary)

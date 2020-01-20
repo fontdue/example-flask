@@ -3,7 +3,7 @@ from functools import wraps
 from gql import gql, Client
 from gql.transport.requests import RequestsHTTPTransport
 
-from api import config
+from app import config
 
 _transport = RequestsHTTPTransport(
     url=config.GRAPHQL_URL,

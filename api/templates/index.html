@@ -1,6 +1,8 @@
 {% from 'helpers.html' import render_font_style %}
 {% extends "layout.html" %}
 
+{% block title %}Example Type Foundry{% endblock %}
+
 {% block content %}
   <div class="index">
     {% for edge in data.viewer.fontCollections.edges %}
@@ -9,10 +11,12 @@
       {% set family = style.family %}
 
       {% call render_font_style(css_url=family.cssUrl, family=style.cssFamily, style=style.name) %}
-        <a href="/fonts/{{ collection.id }}" class="index__link">
-          {{ collection.name }}
-          <span class="index__link__styles">{{ collection.totalStyles }} styles</span>
-        </a>
+        {% if collection.slug %}
+          <a href="/fonts/{{ collection.slug.name }}" class="index__link">
+            {{ collection.name }}
+            <span class="index__link__styles">{{ collection.totalStyles }} styles</span>
+          </a>
+        {% endif %}
       {% endcall %}
 
     {% endfor %}

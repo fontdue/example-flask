@@ -1,8 +1,11 @@
 {% from 'helpers.html' import render_font_style, render_css_url %}
 {% extends "layout.html" %}
 
+{% set collection = data.viewer.slug.fontCollection %}
+
+{% block title %}{{ collection.name }} - Example Type Foundry{% endblock %}
+
 {% block content %}
-  {% set collection = data.node %}
   <div class="collection">
     <h1 class="collection__name">
       {% set feature_style = collection.featureStyle %}

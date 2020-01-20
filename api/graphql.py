@@ -3,8 +3,10 @@ from functools import wraps
 from gql import gql, Client
 from gql.transport.requests import RequestsHTTPTransport
 
+from api import config
+
 _transport = RequestsHTTPTransport(
-    url='https://www.generaltypestudio.com/graphql',
+    url=config.GRAPHQL_URL,
     use_json=True,
 )
 

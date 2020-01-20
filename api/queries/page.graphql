@@ -1,0 +1,10 @@
+query Font($slug: String!) {
+  viewer {
+    slug(name: $slug) {
+      page {
+        title
+        text
+      }
+    }
+  }
+}

@@ -5,6 +5,7 @@
         node {
           id
           name
+          slug { name }
           totalStyles
           featureStyle {
             name

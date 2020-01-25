@@ -1,5 +1,6 @@
 from flask import render_template
 from app import app
+from app import config
 from app.graphql import query
 from app.utils import deep_get
 
@@ -27,3 +28,7 @@ def page(data, slug=None):
 
 def not_found():
     return render_template('404.html'), 404
+
+@app.context_processor
+def context_processor():
+    return {'fontdue_url': config.FONTDUE_URL}

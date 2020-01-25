@@ -6,7 +6,7 @@ from app import app
 from app import config
 
 _transport = RequestsHTTPTransport(
-    url=config.GRAPHQL_URL,
+    url=config.FONTDUE_URL + '/graphql',
     use_json=True,
 )
 

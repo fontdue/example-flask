@@ -7,6 +7,6 @@
     { "src": "/.*", "dest": "/index.py" }
   ],
   "env": {
-    "GRAPHQL_URL": "@graphql-url"
+    "FONTDUE_URL": "@fontdue-url"
   }
 }

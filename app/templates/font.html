@@ -13,6 +13,13 @@
         {{ collection.name }}
       {% endcall %}
     </h1>
+
+    <div
+      data-component="BuyButton"
+      data-collection-id="{{ collection.id }}"
+      data-collection-name="{{ collection.name }}"
+    ></div>
+
     <p class="collection__description">{{ collection.description }}</p>
 
     {% if collection.collectionType == 'superfamily' %}

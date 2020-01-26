@@ -10,6 +10,7 @@ query Font($slug: String!) {
   viewer {
     slug(name: $slug) {
       fontCollection {
+        id
         name
         description
         collectionType

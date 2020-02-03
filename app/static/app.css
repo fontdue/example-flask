@@ -88,16 +88,10 @@ h1, h2, h3, h4, h5, h6, p {
   background: #ccc;
 }
 
-.cart-button:before {
-  content: 'Cart (';
+.cart-button:after {
+  content: ' (' attr(data-count) ')';
   display: inline;
 }
-
-.cart-button:after {
-  content: ')';
-  display: inline
-}
-
 
 .buy-button {
   border: none;

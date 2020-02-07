@@ -19,9 +19,9 @@ The app should start at [http://localhost:5000](http://localhost:5000)
 
 # Deploying to Now.sh
 
-The `GRAPHQL_URL` environment variable must point to a Fontdue graphql endpoint.
+The `FONTDUE_URL` environment variable must point to a Fontdue endpoint.
 
 ``` shell
-now secrets add graphql-url "https://example.fontdue.com/graphql"
+now secrets add fontdue-url "https://example.fontdue.com"
 now --prod
 ```

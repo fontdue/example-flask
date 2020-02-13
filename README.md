@@ -22,6 +22,6 @@ The app should start at [http://localhost:5000](http://localhost:5000)
 The `FONTDUE_URL` environment variable must point to a Fontdue endpoint.
 
 ``` shell
-now secrets add fontdue-url "https://example.fontdue.com"
+now secrets add fontdue-url "https://fort.fontdue.xyz/"
 now --prod
 ```

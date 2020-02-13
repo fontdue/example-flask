@@ -3,6 +3,7 @@ body {
   font-size: 16px;
   line-height: 1.4;
   margin: 0;
+  background: #F9F7F3;
 }
 
 a {
@@ -17,13 +18,19 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 .main {
-  padding: 20px;
   overflow-x: hidden;
 }
 
 .nav {
   display: flex;
   justify-content: space-between;
+  background: #3B3821;
+  padding: 20px 10px 5px;
+}
+
+.nav a {
+  color: #DBBD9C;
+  text-transform: uppercase;
 }
 
 .index {

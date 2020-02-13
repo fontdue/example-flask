@@ -25,7 +25,6 @@ def page(data, slug=None):
 
     return render_template('page.html', data=data)
 
-
 def not_found():
     return render_template('404.html'), 404
 

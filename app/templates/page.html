@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+
+{% set page = data.viewer.slug.page %}
+
+{% block title %}{{ page.title }} - Example Type Foundry{% endblock %}
+
+{% block content %}
+  <div>
+    {{ page.text | safe }}
+  </div>
+{% endblock %}

@@ -23,6 +23,21 @@
 
     <link rel="stylesheet" href="https://js.fontdue.xyz/fontdue.css">
     <script type="text/javascript" src="https://js.fontdue.xyz/fontdue.js"></script>
-    <script>fontdue.initialize({ url: "{{ fontdue_url }}" });</script>
+
+    <script>
+     fontdue.initialize({
+       url: "{{ fontdue_url }}",
+       config: {
+         typeTester: {
+           min: 6,
+           max: 480,
+           priceBar: false,
+           selectable: true,
+           buyButton: true,
+           textInput: true,
+         },
+       },
+     });
+    </script>
   </body>
 </html>

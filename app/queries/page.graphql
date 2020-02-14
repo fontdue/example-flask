@@ -3,7 +3,7 @@ query Font($slug: String!) {
     slug(name: $slug) {
       page {
         title
-        text
+        text(format: HTML)
       }
     }
   }

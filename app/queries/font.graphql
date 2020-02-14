@@ -33,21 +33,6 @@ query Font($slug: String!) {
             cssFamily
           }
         }
-
-        typeTesters(first: 120) {
-          edges {
-            node {
-              content
-              size
-              lineHeight
-
-              fontStyle {
-                name
-                cssFamily
-              }
-            }
-          }
-        }
       }
     }
   }

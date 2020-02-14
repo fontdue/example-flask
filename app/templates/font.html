@@ -47,21 +47,9 @@
       </div>
     {% endif %}
 
-    <div>
-      {% for edge in collection.typeTesters.edges %}
-        {% set tester = edge.node %}
-        {% set style = tester.fontStyle %}
-
-        <div class="tester">
-          <h4>{{ style.familyName }} {{ style.name }}</h4>
-
-          {% call render_font_style(family=style.cssFamily, style=style.name) %}
-            <p style="font-size: {{ tester.size }}px; line-height: {{ tester.lineHeight }}">
-              {{ tester.content }}
-            </p>
-          {% endcall %}
-        </div>
-      {% endfor %}
-    </div>
+    <div
+      data-component="TypeTesters"
+      data-collection-id="{{ collection.id }}"
+      data-default-mode="local"></div>
   </div>
 {% endblock %}

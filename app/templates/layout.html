@@ -2,9 +2,16 @@
 <html lang="en">
   <head>
     {% block head %}
-    <link rel="stylesheet" href="/static/app.css" />
+    <link rel="stylesheet" href="/static/app.css">
     <title>{% block title %}{% endblock %}</title>
     {% endblock %}
+
+    <link rel="stylesheet" href="{{ layout_data.viewer.settings.uiFontUrl }}">
+    <style>
+     body {
+       font-family: "{{ layout_data.viewer.settings.uiFontName }}", sans-serif;
+     }
+    </style>
   </head>
   <body>
     <main class="main">

@@ -30,12 +30,15 @@ def _get_query_string(name):
     _query_cache[name] = query_string
     return query_string
 
-def query(name):
+def execute_query(name, **kwargs):
+    query_string = _get_query_string(name)
+    return _client.execute(gql(query_string), kwargs)
+
+def query(name, argname='data'):
     def decorator(f):
         @wraps(f)
         def decorated_function(*args, **kwargs):
-            query_string = _get_query_string(name)
-            kwargs['data'] = _client.execute(gql(query_string), kwargs)
+            kwargs[argname] = execute_query(name, **kwargs)
             return f(*args, **kwargs)
         return decorated_function
     return decorator

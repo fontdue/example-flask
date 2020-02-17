@@ -6,24 +6,27 @@ from app.utils import deep_get
 
 @app.route('/')
 @query('index')
-def index(data):
-    return render_template('index.html', data=data)
+@query('layout', 'layout_data')
+def index(data, layout_data):
+    return render_template('index.html', data=data, layout_data=layout_data)
 
 @app.route('/fonts/<slug>')
 @query('font')
-def font(data, slug=None):
+@query('layout', 'layout_data')
+def font(data, layout_data, slug=None):
     if not deep_get(data, 'viewer.slug.fontCollection'):
         return not_found()
 
-    return render_template('font.html', data=data)
+    return render_template('font.html', data=data, layout_data=layout_data)
 
 @app.route('/<slug>')
 @query('page')
-def page(data, slug=None):
+@query('layout', 'layout_data')
+def page(data, layout_data, slug=None):
     if not deep_get(data, 'viewer.slug.page'):
         return not_found()
 
-    return render_template('page.html', data=data)
+    return render_template('page.html', data=data, layout_data=layout_data)
 
 
 def not_found():

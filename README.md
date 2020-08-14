@@ -49,4 +49,6 @@ The server will start at [http://localhost:5000](http://localhost:5000)
 Set up your project with [Vercel](https://vercel.com/signup)
 (choose the GitHub integration).
 
+Choose the root directory when importing.
+
 The `FONTDUE_URL` environment variable must point to a Fontdue endpoint.

@@ -1,12 +1,9 @@
 {
   "version": 2,
   "builds": [
-    { "src": "/index.py", "use": "@now/python" }
+    { "src": "/index.py", "use": "@vercel/python" }
   ],
   "routes": [
     { "src": "/.*", "dest": "/index.py" }
-  ],
-  "env": {
-    "FONTDUE_URL": "@fontdue-url"
-  }
+  ]
 }

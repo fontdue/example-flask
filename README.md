@@ -44,11 +44,9 @@ $ pipenv run flask run
 The server will start at [http://localhost:5000](http://localhost:5000)
 
 
-### Deploying to Now.sh
+### Deploying to Vercel
+
+Set up your project with [Vercel](https://vercel.com/signup)
+(choose the GitHub integration).
 
 The `FONTDUE_URL` environment variable must point to a Fontdue endpoint.
-
-``` shell
-now secrets add fontdue-url "https://example.fontdue.com"
-now --prod
-```

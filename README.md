@@ -1,11 +1,8 @@
-# fontdue-python-demo
+# Build your Fontdue site with Python Flask
 
-This is a Flask demo project for a web app consuming data from the Fontdue GraphQL API.
+This is a starting point for building your Fontdue site template with Python.
 
-[Learn about GraphQL queries →](https://graphql.org/learn/queries/)
-
-Explore the GraphQL API via [GraphiQL →](https://www.electronjs.org/apps/graphiql) \
-Enter your Fontdue site's graphql endpoint, e.g. https://example-type.fontdue.com/graphql and click "Docs"
+[Read the guide](https://www.notion.so/fontdue/Dynamic-templates-with-Python-1f083fb340024d5489da47b6a282df49)
 
 ---
 
@@ -25,11 +22,11 @@ brew install python3
 pip3 install pipenv
 ```
 
-Clone this template project by clicking the
+Create your own repo by clicking the
 [Use this template](https://github.com/fontdue/fontdue-python-demo/generate)
 button.
 
-Clone your repo, then install dependencies:
+Clone your repo and install dependencies:
 
 ```shell
 $ pipenv install
@@ -42,13 +39,3 @@ $ pipenv run flask run
 ```
 
 The server will start at [http://localhost:5000](http://localhost:5000)
-
-
-### Deploying to Vercel
-
-Set up your project with [Vercel](https://vercel.com/signup)
-(choose the GitHub integration).
-
-Choose the root directory when importing.
-
-The `FONTDUE_URL` environment variable must point to a Fontdue endpoint.

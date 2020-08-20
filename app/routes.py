@@ -1,8 +1,12 @@
-from flask import render_template
+from flask import render_template, url_for
 from app import app
 from app import config
 from app.graphql import query
 from app.utils import deep_get
+
+@app.route('/favicon.ico')
+def favicon():
+    return redirect(url_for('static', filename='favicon.ico'))
 
 @app.route('/')
 @query('index')

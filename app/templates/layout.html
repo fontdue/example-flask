@@ -2,7 +2,8 @@
 <html lang="en">
   <head>
     {% block head %}
-    <link rel="stylesheet" href="/static/app.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='app.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
     <title>{% block title %}{% endblock %}</title>
     {% endblock %}
 

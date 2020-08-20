@@ -14,13 +14,14 @@
       {% endcall %}
     </h1>
 
-    <div
-      data-component="BuyButton"
-      data-collection-id="{{ collection.id }}"
-      data-collection-name="{{ collection.name }}"
-    ></div>
+    <fontdue-buy-button
+      collection-id="{{ collection.id }}"
+      collection-name="{{ collection.name }}"
+    ></fontdue-buy-button>
 
-    <p class="collection__description">{{ collection.description }}</p>
+    {% if collection.description %}
+      <p class="collection__description">{{ collection.description }}</p>
+    {% endif %}
 
     {% if collection.collectionType == 'superfamily' %}
       <div class="styles-group">
@@ -47,9 +48,9 @@
       </div>
     {% endif %}
 
-    <div
-      data-component="TypeTesters"
-      data-collection-id="{{ collection.id }}"
-      data-default-mode="local"></div>
+    <fontdue-type-testers
+      collection-id="{{ collection.id }}"
+      default-mode="local"
+    ></fontdue-type-testers>
   </div>
 {% endblock %}

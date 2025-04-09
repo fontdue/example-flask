@@ -1,3 +1,7 @@
+> [!WARNING]
+> We no longer recommend this method for creating your Fontdue site. Please take a look at our guide for [Next.js (App router)](https://docs.fontdue.com/nextjs)
+
+
 # Build your Fontdue site with Python Flask
 
 This is a starting point for building your Fontdue site template with Python.
